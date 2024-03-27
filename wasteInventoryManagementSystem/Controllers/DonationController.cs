@@ -34,27 +34,46 @@ namespace wasteInventoryManagementSystem.Controllers
             }
             return View();
         }
-        public IActionResult Delete()
+        public IActionResult Delete(int? id)
         {
             return View();
         }
-
-        public IActionResult Details()
+        [HttpPost]
+        public IActionResult Delete(WasteDonation donationList)
         {
             return View();
         }
-
+        public IActionResult Details(int? id)
+        {
+            return View();
+        }
+        [HttpPost]
+        public IActionResult Details(WasteDonation donationList)
+        {
+            return View();
+        }
         public IActionResult Edit(int? id)
         {
             if (id == null || id == 0)
             {
                 return NotFound();
             }
-            return View();
+            WasteDonation donationList = _db.wasteDonations.FirstOrDefault(w => w.Id == id);
+            if (donationList == null)
+            {
+                NotFound();
+            }
+            return View(donationList);
         }
         [HttpPost]
         public IActionResult Edit(WasteDonation donationList)
         {
+            if (ModelState.IsValid)
+            {
+                _db.Update(donationList);
+                _db.SaveChanges();
+                return View("Index");
+            }
 
             return View();
         }
