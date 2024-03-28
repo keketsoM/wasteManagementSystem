@@ -3,10 +3,12 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
+#pragma warning disable CA1814 // Prefer jagged arrays over multidimensional
+
 namespace wasteInventoryManagementSystem.Migrations
 {
     /// <inheritdoc />
-    public partial class AddAllTableToDBContext : Migration
+    public partial class seedDataAndAddForeighKey : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -100,6 +102,26 @@ namespace wasteInventoryManagementSystem.Migrations
                         principalTable: "WeightAndPrice",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.InsertData(
+                table: "WeightAndPrice",
+                columns: new[] { "Id", "AluminumCansPrice", "AluminumCansWeight", "CardboardPrice", "CardboardWeight", "GlassBottlesPrice", "GlassBottlesWeight", "MetalsPrice", "MetalsWeight", "PlasticPrice", "PlasticWeight", "TotalSalePrice", "Totalweight" },
+                values: new object[,]
+                {
+                    { 1, 2.0, 1.0, 0.5, 1.0, 5.0, 1.0, 10.0, 1.0, 1.0, 1.0, 50.0, 50.0 },
+                    { 2, 4.0, 2.0, 1.0, 2.0, 10.0, 2.0, 20.0, 2.0, 2.0, 2.0, 100.0, 100.0 },
+                    { 3, 6.0, 3.0, 1.5, 3.0, 15.0, 3.0, 30.0, 3.0, 3.0, 3.0, 150.0, 150.0 }
+                });
+
+            migrationBuilder.InsertData(
+                table: "wasteDonations",
+                columns: new[] { "Id", "BusinessName", "ContactNumber", "ContactPerson", "Date", "WeightAndPriceId" },
+                values: new object[,]
+                {
+                    { 1, "keke shop", "0658775412", "kk", new DateTime(2024, 3, 28, 17, 51, 30, 499, DateTimeKind.Local).AddTicks(6907), 1 },
+                    { 2, "L shop", "0658777862", "ks", new DateTime(2024, 3, 28, 17, 51, 30, 499, DateTimeKind.Local).AddTicks(6925), 2 },
+                    { 3, "M shop", "0846775412", "kl", new DateTime(2024, 3, 28, 17, 51, 30, 499, DateTimeKind.Local).AddTicks(6927), 3 }
                 });
 
             migrationBuilder.CreateIndex(

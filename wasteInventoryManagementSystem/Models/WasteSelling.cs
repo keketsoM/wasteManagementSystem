@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace wasteInventoryManagementSystem.Models
 {
@@ -11,7 +12,8 @@ namespace wasteInventoryManagementSystem.Models
         public string WholesaleCompany { get; set; }
         public string WholesaleContact { get; set; }
 
-
-
+        public int WeightAndPriceId { get; set; }
+        [ForeignKey("WeightAndPriceId")]
+        public WeightAndPrice WeightAndPrice { get; set; }
     }
 }

@@ -12,6 +12,9 @@ namespace wasteInventoryManagementSystem.Models
         public string Name { get; set; }
         public string Surname { get; set; }
 
+        public int WeightAndPriceId { get; set; }
+        [ForeignKey("WeightAndPriceId")]
+        public WeightAndPrice WeightAndPrice { get; set; }
 
     }
 }

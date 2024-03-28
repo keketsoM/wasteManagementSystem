@@ -27,9 +27,19 @@
                         <li class="nav-item">
                             <a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-light" asp-area="" asp-controller="Donation" asp-action="Index">Donation List</a>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle text-light" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Recorded List
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item text-dark" asp-area="" asp-controller="Donation" asp-action="Index">Donation List</a></li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li><a class="dropdown-item text-dark" asp-area="" asp-controller="Buying" asp-action="Index">Buying List</a></li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li><a class="dropdown-item text-dark" asp-area="" asp-controller="Selling" asp-action="Index">Selling List</a></li>
+                            </ul>
                         </li>
+      
                     </ul>
                 </div>
             </div>

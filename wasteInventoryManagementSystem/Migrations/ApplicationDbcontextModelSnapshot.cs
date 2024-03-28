@@ -41,7 +41,12 @@ namespace wasteInventoryManagementSystem.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int>("WeightAndPriceId")
+                        .HasColumnType("int");
+
                     b.HasKey("id");
+
+                    b.HasIndex("WeightAndPriceId");
 
                     b.ToTable("wasteBuyings");
                 });
@@ -69,7 +74,12 @@ namespace wasteInventoryManagementSystem.Migrations
                     b.Property<DateTime>("Date")
                         .HasColumnType("datetime2");
 
+                    b.Property<int>("WeightAndPriceId")
+                        .HasColumnType("int");
+
                     b.HasKey("Id");
+
+                    b.HasIndex("WeightAndPriceId");
 
                     b.ToTable("wasteDonations");
 
@@ -80,7 +90,8 @@ namespace wasteInventoryManagementSystem.Migrations
                             BusinessName = "keke shop",
                             ContactNumber = "0658775412",
                             ContactPerson = "kk",
-                            Date = new DateTime(2024, 3, 28, 12, 14, 39, 878, DateTimeKind.Local).AddTicks(2143)
+                            Date = new DateTime(2024, 3, 28, 17, 51, 30, 499, DateTimeKind.Local).AddTicks(6907),
+                            WeightAndPriceId = 1
                         },
                         new
                         {
@@ -88,7 +99,8 @@ namespace wasteInventoryManagementSystem.Migrations
                             BusinessName = "L shop",
                             ContactNumber = "0658777862",
                             ContactPerson = "ks",
-                            Date = new DateTime(2024, 3, 28, 12, 14, 39, 878, DateTimeKind.Local).AddTicks(2158)
+                            Date = new DateTime(2024, 3, 28, 17, 51, 30, 499, DateTimeKind.Local).AddTicks(6925),
+                            WeightAndPriceId = 2
                         },
                         new
                         {
@@ -96,7 +108,8 @@ namespace wasteInventoryManagementSystem.Migrations
                             BusinessName = "M shop",
                             ContactNumber = "0846775412",
                             ContactPerson = "kl",
-                            Date = new DateTime(2024, 3, 28, 12, 14, 39, 878, DateTimeKind.Local).AddTicks(2159)
+                            Date = new DateTime(2024, 3, 28, 17, 51, 30, 499, DateTimeKind.Local).AddTicks(6927),
+                            WeightAndPriceId = 3
                         });
                 });
 
@@ -111,6 +124,9 @@ namespace wasteInventoryManagementSystem.Migrations
                     b.Property<DateTime>("Date")
                         .HasColumnType("datetime2");
 
+                    b.Property<int>("WeightAndPriceId")
+                        .HasColumnType("int");
+
                     b.Property<string>("WholesaleCompany")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -121,7 +137,141 @@ namespace wasteInventoryManagementSystem.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("WeightAndPriceId");
+
                     b.ToTable("wasteSellings");
+                });
+
+            modelBuilder.Entity("wasteInventoryManagementSystem.Models.WeightAndPrice", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<double>("AluminumCansPrice")
+                        .HasColumnType("float");
+
+                    b.Property<double>("AluminumCansWeight")
+                        .HasColumnType("float");
+
+                    b.Property<double>("CardboardPrice")
+                        .HasColumnType("float");
+
+                    b.Property<double>("CardboardWeight")
+                        .HasColumnType("float");
+
+                    b.Property<double>("GlassBottlesPrice")
+                        .HasColumnType("float");
+
+                    b.Property<double>("GlassBottlesWeight")
+                        .HasColumnType("float");
+
+                    b.Property<double>("MetalsPrice")
+                        .HasColumnType("float");
+
+                    b.Property<double>("MetalsWeight")
+                        .HasColumnType("float");
+
+                    b.Property<double>("PlasticPrice")
+                        .HasColumnType("float");
+
+                    b.Property<double>("PlasticWeight")
+                        .HasColumnType("float");
+
+                    b.Property<double>("TotalSalePrice")
+                        .HasColumnType("float");
+
+                    b.Property<double>("Totalweight")
+                        .HasColumnType("float");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("WeightAndPrice");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            AluminumCansPrice = 2.0,
+                            AluminumCansWeight = 1.0,
+                            CardboardPrice = 0.5,
+                            CardboardWeight = 1.0,
+                            GlassBottlesPrice = 5.0,
+                            GlassBottlesWeight = 1.0,
+                            MetalsPrice = 10.0,
+                            MetalsWeight = 1.0,
+                            PlasticPrice = 1.0,
+                            PlasticWeight = 1.0,
+                            TotalSalePrice = 50.0,
+                            Totalweight = 50.0
+                        },
+                        new
+                        {
+                            Id = 2,
+                            AluminumCansPrice = 4.0,
+                            AluminumCansWeight = 2.0,
+                            CardboardPrice = 1.0,
+                            CardboardWeight = 2.0,
+                            GlassBottlesPrice = 10.0,
+                            GlassBottlesWeight = 2.0,
+                            MetalsPrice = 20.0,
+                            MetalsWeight = 2.0,
+                            PlasticPrice = 2.0,
+                            PlasticWeight = 2.0,
+                            TotalSalePrice = 100.0,
+                            Totalweight = 100.0
+                        },
+                        new
+                        {
+                            Id = 3,
+                            AluminumCansPrice = 6.0,
+                            AluminumCansWeight = 3.0,
+                            CardboardPrice = 1.5,
+                            CardboardWeight = 3.0,
+                            GlassBottlesPrice = 15.0,
+                            GlassBottlesWeight = 3.0,
+                            MetalsPrice = 30.0,
+                            MetalsWeight = 3.0,
+                            PlasticPrice = 3.0,
+                            PlasticWeight = 3.0,
+                            TotalSalePrice = 150.0,
+                            Totalweight = 150.0
+                        });
+                });
+
+            modelBuilder.Entity("wasteInventoryManagementSystem.Models.WasteBuying", b =>
+                {
+                    b.HasOne("wasteInventoryManagementSystem.Models.WeightAndPrice", "WeightAndPrice")
+                        .WithMany()
+                        .HasForeignKey("WeightAndPriceId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("WeightAndPrice");
+                });
+
+            modelBuilder.Entity("wasteInventoryManagementSystem.Models.WasteDonation", b =>
+                {
+                    b.HasOne("wasteInventoryManagementSystem.Models.WeightAndPrice", "WeightAndPrice")
+                        .WithMany()
+                        .HasForeignKey("WeightAndPriceId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("WeightAndPrice");
+                });
+
+            modelBuilder.Entity("wasteInventoryManagementSystem.Models.WasteSelling", b =>
+                {
+                    b.HasOne("wasteInventoryManagementSystem.Models.WeightAndPrice", "WeightAndPrice")
+                        .WithMany()
+                        .HasForeignKey("WeightAndPriceId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("WeightAndPrice");
                 });
 #pragma warning restore 612, 618
         }

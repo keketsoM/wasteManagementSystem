@@ -1,12 +1,14 @@
 using Microsoft.EntityFrameworkCore;
 using wasteInventoryManagementSystem.Data;
+using wasteInventoryManagementSystem.Repository;
+using wasteInventoryManagementSystem.Repository.IRepository;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 builder.Services.AddDbContext<ApplicationDbcontext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
-
+builder.Services.AddScoped<IUnitOfWork,UnitOfWork>();
 
 
 var app = builder.Build();

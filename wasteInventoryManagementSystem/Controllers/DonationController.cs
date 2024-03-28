@@ -1,20 +1,21 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using wasteInventoryManagementSystem.Data;
 using wasteInventoryManagementSystem.Models;
+using wasteInventoryManagementSystem.Repository.IRepository;
 
 namespace wasteInventoryManagementSystem.Controllers
 {
     public class DonationController : Controller
     {
-        public readonly ApplicationDbcontext _db;
+        public readonly IUnitOfWork _unitOfWork;
 
-        public DonationController(ApplicationDbcontext db)
+        public DonationController(IUnitOfWork unitOfWork)
         {
-            _db = db;
+            _unitOfWork=unitOfWork;
         }
         public IActionResult Index()
         {
-            List<WasteDonation> donationLists = _db.wasteDonations.ToList();
+            List<WasteDonation> donationLists = _unitOfWork.Donation.GetAll().ToList();
             return View(donationLists);
         }
 
@@ -28,8 +29,8 @@ namespace wasteInventoryManagementSystem.Controllers
         {
             if (ModelState.IsValid)
             {
-                _db.Add(donationList);
-                _db.SaveChanges();
+                _unitOfWork.Donation.Add(donationList);
+                _unitOfWork.Save();
                 return RedirectToAction("Index");
             }
             return View();
@@ -40,7 +41,7 @@ namespace wasteInventoryManagementSystem.Controllers
             {
                 return NotFound();
             }
-            WasteDonation donationList = _db.wasteDonations.FirstOrDefault(w => w.Id == id);
+            WasteDonation donationList = _unitOfWork.Donation.Get(w => w.Id == id);
             if (donationList == null)
             {
                 NotFound();
@@ -50,18 +51,18 @@ namespace wasteInventoryManagementSystem.Controllers
         [HttpPost,ActionName("Delete")]
         public IActionResult DeletePost(int? id)
         {
-            WasteDonation donationList = _db.wasteDonations.FirstOrDefault(w => w.Id == id);
-            if(donationList == null)
+            WasteDonation donationList = _unitOfWork.Donation.Get(w => w.Id == id);
+            if (donationList == null)
             {
                 return NotFound();
             }
-            _db.wasteDonations.Remove(donationList);
-            _db.SaveChanges();
+            _unitOfWork.Donation.Remove(donationList);
+            _unitOfWork.Save();
             return RedirectToAction("Index");
         }
         public IActionResult Detail(int? id)
         {
-            WasteDonation donationList = _db.wasteDonations.FirstOrDefault(w => w.Id == id);
+            WasteDonation donationList = _unitOfWork.Donation.Get(w => w.Id == id);
             if (donationList == null)
             {
                 return NotFound();
@@ -76,7 +77,7 @@ namespace wasteInventoryManagementSystem.Controllers
             {
                 return NotFound();
             }
-            WasteDonation donationList = _db.wasteDonations.FirstOrDefault(w => w.Id == id);
+            WasteDonation donationList = _unitOfWork.Donation.Get(w => w.Id == id);
             if (donationList == null)
             {
                 NotFound();
@@ -88,8 +89,8 @@ namespace wasteInventoryManagementSystem.Controllers
         {
             if (ModelState.IsValid)
             {
-                _db.Update(donationList);
-                _db.SaveChanges();
+                _unitOfWork.Donation.Update(donationList);
+                _unitOfWork.Save();
                 return RedirectToAction("Index");
             }
 
