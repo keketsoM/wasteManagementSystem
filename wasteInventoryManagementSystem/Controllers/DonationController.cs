@@ -30,28 +30,46 @@ namespace wasteInventoryManagementSystem.Controllers
             {
                 _db.Add(donationList);
                 _db.SaveChanges();
-                return View("Index");
+                return RedirectToAction("Index");
             }
             return View();
         }
         public IActionResult Delete(int? id)
         {
-            return View();
+            if (id == null || id == 0)
+            {
+                return NotFound();
+            }
+            WasteDonation donationList = _db.wasteDonations.FirstOrDefault(w => w.Id == id);
+            if (donationList == null)
+            {
+                NotFound();
+            }
+            return View(donationList);
         }
-        [HttpPost]
-        public IActionResult Delete(WasteDonation donationList)
+        [HttpPost,ActionName("Delete")]
+        public IActionResult DeletePost(int? id)
         {
-            return View();
+            WasteDonation donationList = _db.wasteDonations.FirstOrDefault(w => w.Id == id);
+            if(donationList == null)
+            {
+                return NotFound();
+            }
+            _db.wasteDonations.Remove(donationList);
+            _db.SaveChanges();
+            return RedirectToAction("Index");
         }
-        public IActionResult Details(int? id)
+        public IActionResult Detail(int? id)
         {
-            return View();
+            WasteDonation donationList = _db.wasteDonations.FirstOrDefault(w => w.Id == id);
+            if (donationList == null)
+            {
+                return NotFound();
+            }
+            return View(donationList);
         }
-        [HttpPost]
-        public IActionResult Details(WasteDonation donationList)
-        {
-            return View();
-        }
+       
+
         public IActionResult Edit(int? id)
         {
             if (id == null || id == 0)
@@ -72,7 +90,7 @@ namespace wasteInventoryManagementSystem.Controllers
             {
                 _db.Update(donationList);
                 _db.SaveChanges();
-                return View("Index");
+                return RedirectToAction("Index");
             }
 
             return View();
