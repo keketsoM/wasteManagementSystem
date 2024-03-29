@@ -1,10 +1,9 @@
-﻿@model WasteDonation
-
-<div class="card shadow border-0 mt-4 rounded ">
+﻿@model WasteBuying
+<div class="card shadow border-0 rounded mt-4 ">
     <div class="card-header bg-secondary bg-gradient ml-0 py-3">
         <div class="row">
             <div class="col-12 text-center">
-                <h2 class="text-white py-2">Edit Category</</h2>
+                <h2 class="text-white py-2">Delete Buyer</</h2>
 
             </div>
         </div>
@@ -14,96 +13,91 @@
             <div class="border p-3 mt-4">
 
                 <div>
-                    <input asp-for="Id" hidden class="form-control" />
+                    <input asp-for="id" hidden class="form-control" />
                 </div>
                 <div class="form-floating py-2 col-12">
-                    <input asp-for="Date" class="form-control border-0 shadow" />
+                    <input asp-for="Date" disabled class="form-control border-0 shadow" />
                     <label asp-for=Date class="ms-2"></label>
-
-
                 </div>
                 <div class="form-floating py-2 col-12">
-                    <input asp-for="BusinessName" class="form-control border-0 shadow" />
-                    <label asp-for=BusinessName class="ms-2"></label>
+                    <input asp-for="Name" disabled class="form-control border-0 shadow" />
+                    <label asp-for=Name class="ms-2"></label>
 
                 </div>
                 <div class="form-floating py-2 col-12">
-                    <input asp-for="ContactPerson" class="form-control border-0 shadow" />
-                    <label asp-for=ContactPerson class="ms-2"></label>
+                    <input asp-for="Surname" disabled class="form-control border-0 shadow" />
+                    <label asp-for=Surname class="ms-2"></label>
+
                 </div>
                 <div class="form-floating py-2 col-12">
-                    <input asp-for="ContactNumber" class="form-control border-0 shadow" />
-                    <label asp-for=ContactNumber class="ms-2"></label>
-                </div>
-                <div class="form-floating py-2 col-12">
-                    <input asp-for="WeightAndPrice.GlassBottlesWeight" class="form-control border-0 shadow" />
+                    <input asp-for="WeightAndPrice.GlassBottlesWeight" disabled class="form-control border-0 shadow" />
                     <label asp-for=WeightAndPrice.GlassBottlesWeight class="ms-2"></label>
                 </div>
                 <div class="form-floating py-2 col-12">
-                    <input asp-for="WeightAndPrice.GlassBottlesPrice" class="form-control border-0 shadow" />
+                    <input asp-for="WeightAndPrice.GlassBottlesPrice" disabled class="form-control border-0 shadow" />
                     <label asp-for=WeightAndPrice.GlassBottlesPrice class="ms-2"></label>
                 </div>
                 <div class="form-floating py-2 col-12">
-                    <input asp-for="WeightAndPrice.MetalsWeight" class="form-control border-0 shadow" />
+                    <input asp-for="WeightAndPrice.MetalsWeight" disabled class="form-control border-0 shadow" />
                     <label asp-for=WeightAndPrice.MetalsWeight class="ms-2"></label>
                 </div>
                 <div class="form-floating py-2 col-12">
-                    <input asp-for="WeightAndPrice.MetalsPrice" class="form-control border-0 shadow" />
+                    <input asp-for="WeightAndPrice.MetalsPrice" disabled class="form-control border-0 shadow" />
                     <label asp-for=WeightAndPrice.MetalsPrice class="ms-2"></label>
                 </div>
                 <div class="form-floating py-2 col-12">
-                    <input asp-for="WeightAndPrice.PlasticWeight" class="form-control border-0 shadow" />
+                    <input asp-for="WeightAndPrice.PlasticWeight" disabled class="form-control border-0 shadow" />
                     <label asp-for=WeightAndPrice.PlasticWeight class="ms-2"></label>
 
                 </div>
                 <div class="form-floating py-2 col-12">
-                    <input asp-for="WeightAndPrice.PlasticPrice" class="form-control border-0 shadow" />
+                    <input asp-for="WeightAndPrice.PlasticPrice" disabled class="form-control border-0 shadow" />
                     <label asp-for=WeightAndPrice.PlasticPrice class="ms-2"></label>
                 </div>
                 <div class="form-floating py-2 col-12">
-                    <input asp-for="WeightAndPrice.PaperWeight" class="form-control border-0 shadow" />
+                    <input asp-for="WeightAndPrice.PaperWeight" disabled class="form-control border-0 shadow" />
                     <label asp-for=WeightAndPrice.PaperWeight class="ms-2"></label>
 
                 </div>
                 <div class="form-floating py-2 col-12">
-                    <input asp-for="WeightAndPrice.PaperPrice" class="form-control border-0 shadow" />
+                    <input asp-for="WeightAndPrice.PaperPrice" disabled class="form-control border-0 shadow" />
                     <label asp-for=WeightAndPrice.PaperPrice class="ms-2"></label>
                 </div>
                 <div class="form-floating py-2 col-12">
-                    <input asp-for="WeightAndPrice.CardboardWeight" class="form-control border-0 shadow" />
+                    <input asp-for="WeightAndPrice.CardboardWeight" disabled class="form-control border-0 shadow" />
                     <label asp-for=WeightAndPrice.CardboardWeight class="ms-2"></label>
                 </div>
                 <div class="form-floating py-2 col-12">
-                    <input asp-for="WeightAndPrice.CardboardPrice" class="form-control border-0 shadow" />
+                    <input asp-for="WeightAndPrice.CardboardPrice" disabled class="form-control border-0 shadow" />
                     <label asp-for=WeightAndPrice.CardboardPrice class="ms-2"></label>
                 </div>
                 <div class="form-floating py-2 col-12">
-                    <input asp-for="WeightAndPrice.AluminumCansWeight" class="form-control border-0 shadow" />
+                    <input asp-for="WeightAndPrice.AluminumCansWeight" disabled class="form-control border-0 shadow" />
                     <label asp-for=WeightAndPrice.AluminumCansWeight class="ms-2"></label>
                 </div>
                 <div class="form-floating py-2 col-12">
-                    <input asp-for="WeightAndPrice.AluminumCansPrice" class="form-control border-0 shadow" />
+                    <input asp-for="WeightAndPrice.AluminumCansPrice" disabled class="form-control border-0 shadow" />
                     <label asp-for=WeightAndPrice.AluminumCansPrice class="ms-2"></label>
                 </div>
                 <div class="form-floating py-2 col-12">
-                    <input asp-for="WeightAndPrice.TotalSalePrice" class="form-control border-0 shadow" />
+                    <input asp-for="WeightAndPrice.TotalSalePrice" disabled class="form-control border-0 shadow" />
                     <label asp-for=WeightAndPrice.TotalSalePrice class="ms-2"></label>
                 </div>
                 <div class="form-floating py-2 col-12">
-                    <input asp-for="WeightAndPrice.Totalweight" class="form-control border-0 shadow" />
+                    <input asp-for="WeightAndPrice.Totalweight" disabled class="form-control border-0 shadow" />
                     <label asp-for=WeightAndPrice.Totalweight class="ms-2"></label>
                 </div>
                 <div class="row">
                     <div class="col-6  col-md-3">
-                        <button asp-controller="Donation" asp-action="Edit" class="btn btn-outline-primary form-control" type="submit">Update</button>
+                        <button asp-controller="Buying" asp-action="Delete" class="btn btn-outline-primary form-control" type="submit">Delete</button>
                     </div>
                     <div class="col-6  col-md-3">
-                        <a asp-controller="Donation" asp-action="index" class="btn btn-outline-secondary form-control">Back to List</a>
+                        <a asp-controller="Buying" asp-action="index" class="btn btn-outline-secondary form-control">Back to List</a>
                     </div>
-
                 </div>
             </div>
         </form>
     </div>
 </div>
 
+                     

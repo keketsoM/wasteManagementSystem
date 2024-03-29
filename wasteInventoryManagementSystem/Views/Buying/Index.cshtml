@@ -1,35 +1,32 @@
-﻿@model IEnumerable<WasteDonation>
+﻿@model IEnumerable<WasteBuying>
 
 <div class="card shadow border-0 mt-4 mb-5  rounded">
     <div class="card-header bg-secondary bg-gradient ml-0 py-3">
         <div class="row">
             <div class="col-12 text-center">
-                <h2 class="text-white py-2">Donation List</</h2>
+                <h2 class="text-white py-2">Buyer Lists</</h2>
             </div>
         </div>
     </div>
-    <div class="card-body p-4 w-200" >
+    <div class="card-body p-4">
         <div class="row pb-3">
             <div class="col-6 text-end mb-3">
             </div>
             <div class="col-6 text-end mb-3">
-                <a asp-controller="Donation" asp-action="Create" class="btn btn-outline-dark"><i class="bi bi-plus-circle-fill"></i>Create Donation</a>
+                <a asp-controller="Buying" asp-action="Create" class="btn btn-outline-dark"><i class="bi bi-plus-circle-fill"></i>Create Buyer</a>
             </div>
         </div>
-        <table class="table table-bordered table-borderless table-responsive">
+        <table class="table table-bordered table-borderless">
             <thead>
                 <tr>
                     <th class="text-center">
                         Date and Time
                     </th>
                     <th class="text-center">
-                        Business Name
+                        Name
                     </th>
                     <th class="text-center">
-                        Contact Person
-                    </th>
-                    <th class="text-center">
-                        Contact Number
+                        Surname
                     </th>
                     <th class="text-center">
                         GlassBottles Weight
@@ -37,7 +34,7 @@
                     <th class="text-center">
                         GlassBottles Price
                     </th>
-                     <th class="text-center">
+                    <th class="text-center">
                         Metals Weight
                     </th>
                     <th class="text-center">
@@ -78,7 +75,7 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach (var donation in Model.OrderBy(c => c.BusinessName))
+                @foreach (var donation in Model.OrderBy(c => c.Name))
                 {
 
                     <tr class="table-striped-columns">
@@ -86,16 +83,13 @@
                             @donation.Date
                         </td>
                         <td class="text-center">
-                            @donation.BusinessName
+                            @donation.Name
                         </td>
                         <td class="text-center">
-                            @donation.ContactPerson
+                            @donation.Surname
                         </td>
                         <td class="text-center">
-                            @donation.ContactNumber
-                        </td>
-                        <td class="text-center">
-                                @donation.WeightAndPrice.GlassBottlesWeight
+                            @donation.WeightAndPrice.GlassBottlesWeight
                         </td>
                         <td class="text-center">
                             @donation.WeightAndPrice.GlassBottlesPrice
@@ -137,15 +131,15 @@
                             @donation.WeightAndPrice.Totalweight.ToString("c")
                         </td>
                         <td>
-                            <div class="row">
+                            <div class=row>
                                 <div class="col-4">
-                                    <a class="btn btn-outline-primary rounded " asp-controller="Donation" asp-action="Detail" asp-route-id="@donation.Id" style="width:100px"><i class="bi bi-eye-fill"></i>Detail</a>
+                                    <a class="btn btn-outline-primary  rounded" asp-controller="Buying" asp-action="Detail" asp-route-id="@donation.id" style="width:100px"><i class="bi bi-eye-fill"></i>Detail</a>
                                 </div>
                                 <div class="col-4">
-                                    <a class="btn btn-outline-secondary rounded" asp-controller="Donation" asp-action="Edit" asp-route-id="@donation.Id" style="width:100px"><i class="bi bi-pencil-square"></i>Edit</a>
+                                    <a class="btn btn-outline-secondary  rounded" asp-controller="Buying" asp-action="Edit" asp-route-id="@donation.id" style="width:100px"><i class="bi bi-pencil-square"></i>Edit</a>
                                 </div>
                                 <div class="col-4">
-                                    <a class="btn btn-outline-danger rounded" asp-controller="Donation" asp-action="Delete" asp-route-id="@donation.Id" style="width:100px"><i class="bi bi-trash3-fill"></i>Delete</a>
+                                    <a class="btn btn-outline-danger   rounded" asp-controller="Buying" asp-action="Delete" asp-route-id="@donation.id" style="width:100px"><i class="bi bi-trash3-fill"></i>Delete</a>
                                 </div>
                             </div>
                         </td>

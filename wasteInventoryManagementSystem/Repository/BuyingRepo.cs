@@ -5,15 +5,14 @@ using wasteInventoryManagementSystem.Repository.IRepository;
 
 namespace wasteInventoryManagementSystem.Repository
 {
-    public class DonationRepo : Repository<WasteDonation>, IDonationRepo
+    public class BuyingRepo : Repository<WasteBuying>, IBuyingRepo
     {
         private readonly ApplicationDbcontext _db;
-        public DonationRepo(ApplicationDbcontext db) : base(db)
+        public BuyingRepo(ApplicationDbcontext db) : base(db)
         {
             _db = db;   
         }
-
-       public void Update(WasteDonation donationList)
+        public void Update(WasteBuying donationList)
         {
             _db.Update(donationList);
         }

@@ -2200,6 +2200,16 @@ progress {
     --bs-table-color-state: var(--bs-table-hover-color);
     --bs-table-bg-state: var(--bs-table-hover-bg);
 }
+/*.table-container {
+    overflow-x: auto;*/ /* Add horizontal scrollbar if needed */
+    /*max-width: 100%;*/ /* Ensure the table doesn't exceed the container's width */
+/*}
+
+table {
+    width: 100%;*/ /* Make sure the table fills its container */
+    /*table-layout: fixed;*/ /* Prevent the table from adjusting column widths dynamically */
+/*}*/
+
 
 .table-primary {
     --bs-table-color: #000;

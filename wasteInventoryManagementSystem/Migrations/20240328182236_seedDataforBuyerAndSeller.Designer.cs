@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using wasteInventoryManagementSystem.Data;
 
@@ -11,9 +12,11 @@ using wasteInventoryManagementSystem.Data;
 namespace wasteInventoryManagementSystem.Migrations
 {
     [DbContext(typeof(ApplicationDbcontext))]
-    partial class ApplicationDbcontextModelSnapshot : ModelSnapshot
+    [Migration("20240328182236_seedDataforBuyerAndSeller")]
+    partial class seedDataforBuyerAndSeller
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -54,7 +57,7 @@ namespace wasteInventoryManagementSystem.Migrations
                         new
                         {
                             id = 1,
-                            Date = new DateTime(2024, 3, 29, 0, 6, 13, 703, DateTimeKind.Local).AddTicks(4543),
+                            Date = new DateTime(2024, 3, 28, 20, 22, 35, 901, DateTimeKind.Local).AddTicks(3814),
                             Name = "keke shop",
                             Surname = "kk",
                             WeightAndPriceId = 1
@@ -62,7 +65,7 @@ namespace wasteInventoryManagementSystem.Migrations
                         new
                         {
                             id = 2,
-                            Date = new DateTime(2024, 3, 29, 0, 6, 13, 703, DateTimeKind.Local).AddTicks(4547),
+                            Date = new DateTime(2024, 3, 28, 20, 22, 35, 901, DateTimeKind.Local).AddTicks(3820),
                             Name = "L shop",
                             Surname = "ks",
                             WeightAndPriceId = 2
@@ -108,7 +111,7 @@ namespace wasteInventoryManagementSystem.Migrations
                             BusinessName = "keke shop",
                             ContactNumber = "0658775412",
                             ContactPerson = "kk",
-                            Date = new DateTime(2024, 3, 29, 0, 6, 13, 703, DateTimeKind.Local).AddTicks(4402),
+                            Date = new DateTime(2024, 3, 28, 20, 22, 35, 901, DateTimeKind.Local).AddTicks(3633),
                             WeightAndPriceId = 1
                         },
                         new
@@ -117,7 +120,7 @@ namespace wasteInventoryManagementSystem.Migrations
                             BusinessName = "L shop",
                             ContactNumber = "0658777862",
                             ContactPerson = "ks",
-                            Date = new DateTime(2024, 3, 29, 0, 6, 13, 703, DateTimeKind.Local).AddTicks(4423),
+                            Date = new DateTime(2024, 3, 28, 20, 22, 35, 901, DateTimeKind.Local).AddTicks(3654),
                             WeightAndPriceId = 2
                         },
                         new
@@ -126,7 +129,7 @@ namespace wasteInventoryManagementSystem.Migrations
                             BusinessName = "M shop",
                             ContactNumber = "0846775412",
                             ContactPerson = "kl",
-                            Date = new DateTime(2024, 3, 29, 0, 6, 13, 703, DateTimeKind.Local).AddTicks(4424),
+                            Date = new DateTime(2024, 3, 28, 20, 22, 35, 901, DateTimeKind.Local).AddTicks(3656),
                             WeightAndPriceId = 3
                         });
                 });
@@ -163,7 +166,7 @@ namespace wasteInventoryManagementSystem.Migrations
                         new
                         {
                             Id = 1,
-                            Date = new DateTime(2024, 3, 29, 0, 6, 13, 703, DateTimeKind.Local).AddTicks(4522),
+                            Date = new DateTime(2024, 3, 28, 20, 22, 35, 901, DateTimeKind.Local).AddTicks(3786),
                             WeightAndPriceId = 1,
                             WholesaleCompany = "keke shop",
                             WholesaleContact = "kk"
@@ -171,7 +174,7 @@ namespace wasteInventoryManagementSystem.Migrations
                         new
                         {
                             Id = 2,
-                            Date = new DateTime(2024, 3, 29, 0, 6, 13, 703, DateTimeKind.Local).AddTicks(4526),
+                            Date = new DateTime(2024, 3, 28, 20, 22, 35, 901, DateTimeKind.Local).AddTicks(3791),
                             WeightAndPriceId = 2,
                             WholesaleCompany = "L shop",
                             WholesaleContact = "ks"
@@ -210,12 +213,6 @@ namespace wasteInventoryManagementSystem.Migrations
                     b.Property<double>("MetalsWeight")
                         .HasColumnType("float");
 
-                    b.Property<double>("PaperPrice")
-                        .HasColumnType("float");
-
-                    b.Property<double>("PaperWeight")
-                        .HasColumnType("float");
-
                     b.Property<double>("PlasticPrice")
                         .HasColumnType("float");
 
@@ -244,8 +241,6 @@ namespace wasteInventoryManagementSystem.Migrations
                             GlassBottlesWeight = 1.0,
                             MetalsPrice = 10.0,
                             MetalsWeight = 1.0,
-                            PaperPrice = 0.20000000000000001,
-                            PaperWeight = 1.0,
                             PlasticPrice = 1.0,
                             PlasticWeight = 1.0,
                             TotalSalePrice = 50.0,
@@ -262,8 +257,6 @@ namespace wasteInventoryManagementSystem.Migrations
                             GlassBottlesWeight = 2.0,
                             MetalsPrice = 20.0,
                             MetalsWeight = 2.0,
-                            PaperPrice = 0.40000000000000002,
-                            PaperWeight = 2.0,
                             PlasticPrice = 2.0,
                             PlasticWeight = 2.0,
                             TotalSalePrice = 100.0,
@@ -280,8 +273,6 @@ namespace wasteInventoryManagementSystem.Migrations
                             GlassBottlesWeight = 3.0,
                             MetalsPrice = 30.0,
                             MetalsWeight = 3.0,
-                            PaperPrice = 0.59999999999999998,
-                            PaperWeight = 3.0,
                             PlasticPrice = 3.0,
                             PlasticWeight = 3.0,
                             TotalSalePrice = 150.0,

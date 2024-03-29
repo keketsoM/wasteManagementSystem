@@ -4,8 +4,10 @@ namespace wasteInventoryManagementSystem.Models
 {
     public class WeightAndPrice
     {
+        
         [Key]
         public int Id { get; set; }
+
         public double GlassBottlesWeight { get; set; }
 
         public double GlassBottlesPrice { get; set; }
@@ -15,6 +17,8 @@ namespace wasteInventoryManagementSystem.Models
         public double PlasticWeight { get; set; }
         public double PlasticPrice { get; set; }
 
+        public double PaperWeight { get; set; }
+        public double PaperPrice { get; set; }
         public double CardboardWeight { get; set; }
         public double CardboardPrice { get; set; }
 

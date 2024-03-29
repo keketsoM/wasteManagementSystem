@@ -1,10 +1,10 @@
-﻿@model WasteDonation
+﻿@model WasteBuying
 
 <div class="card shadow border-0 mt-4 rounded ">
     <div class="card-header bg-secondary bg-gradient ml-0 py-3">
         <div class="row">
             <div class="col-12 text-center">
-                <h2 class="text-white py-2">Edit Category</</h2>
+                <h2 class="text-white py-2">Edit Buyer</</h2>
 
             </div>
         </div>
@@ -14,7 +14,7 @@
             <div class="border p-3 mt-4">
 
                 <div>
-                    <input asp-for="Id" hidden class="form-control" />
+                    <input asp-for="id" hidden class="form-control" />
                 </div>
                 <div class="form-floating py-2 col-12">
                     <input asp-for="Date" class="form-control border-0 shadow" />
@@ -23,17 +23,14 @@
 
                 </div>
                 <div class="form-floating py-2 col-12">
-                    <input asp-for="BusinessName" class="form-control border-0 shadow" />
-                    <label asp-for=BusinessName class="ms-2"></label>
+                    <input asp-for="Name" class="form-control border-0 shadow" />
+                    <label asp-for=Name class="ms-2"></label>
 
                 </div>
                 <div class="form-floating py-2 col-12">
-                    <input asp-for="ContactPerson" class="form-control border-0 shadow" />
-                    <label asp-for=ContactPerson class="ms-2"></label>
-                </div>
-                <div class="form-floating py-2 col-12">
-                    <input asp-for="ContactNumber" class="form-control border-0 shadow" />
-                    <label asp-for=ContactNumber class="ms-2"></label>
+                    <input asp-for="Surname" class="form-control border-0 shadow" />
+                    <label asp-for=Surname class="ms-2"></label>
+
                 </div>
                 <div class="form-floating py-2 col-12">
                     <input asp-for="WeightAndPrice.GlassBottlesWeight" class="form-control border-0 shadow" />
@@ -95,10 +92,10 @@
                 </div>
                 <div class="row">
                     <div class="col-6  col-md-3">
-                        <button asp-controller="Donation" asp-action="Edit" class="btn btn-outline-primary form-control" type="submit">Update</button>
+                        <button asp-controller="Buying" asp-action="Edit" class="btn btn-outline-primary form-control" type="submit">Update</button>
                     </div>
                     <div class="col-6  col-md-3">
-                        <a asp-controller="Donation" asp-action="index" class="btn btn-outline-secondary form-control">Back to List</a>
+                        <a asp-controller="Buying" asp-action="index" class="btn btn-outline-secondary form-control">Back to List</a>
                     </div>
 
                 </div>

@@ -15,7 +15,7 @@ namespace wasteInventoryManagementSystem.Controllers
         }
         public IActionResult Index()
         {
-            List<WasteDonation> donationLists = _unitOfWork.Donation.GetAll().ToList();
+            List<WasteDonation> donationLists = _unitOfWork.Donation.GetAll(includeProperties: "WeightAndPrice").ToList();
             return View(donationLists);
         }
 
@@ -41,7 +41,7 @@ namespace wasteInventoryManagementSystem.Controllers
             {
                 return NotFound();
             }
-            WasteDonation donationList = _unitOfWork.Donation.Get(w => w.Id == id);
+            WasteDonation donationList = _unitOfWork.Donation.Get(w => w.Id == id, includeProperties: "WeightAndPrice");
             if (donationList == null)
             {
                 NotFound();
@@ -51,7 +51,7 @@ namespace wasteInventoryManagementSystem.Controllers
         [HttpPost,ActionName("Delete")]
         public IActionResult DeletePost(int? id)
         {
-            WasteDonation donationList = _unitOfWork.Donation.Get(w => w.Id == id);
+            WasteDonation donationList = _unitOfWork.Donation.Get(w => w.Id == id, includeProperties: "WeightAndPrice");
             if (donationList == null)
             {
                 return NotFound();
@@ -62,7 +62,7 @@ namespace wasteInventoryManagementSystem.Controllers
         }
         public IActionResult Detail(int? id)
         {
-            WasteDonation donationList = _unitOfWork.Donation.Get(w => w.Id == id);
+            WasteDonation donationList = _unitOfWork.Donation.Get(w => w.Id == id, includeProperties: "WeightAndPrice");
             if (donationList == null)
             {
                 return NotFound();
@@ -77,7 +77,7 @@ namespace wasteInventoryManagementSystem.Controllers
             {
                 return NotFound();
             }
-            WasteDonation donationList = _unitOfWork.Donation.Get(w => w.Id == id);
+            WasteDonation donationList = _unitOfWork.Donation.Get(w => w.Id == id, includeProperties: "WeightAndPrice");
             if (donationList == null)
             {
                 NotFound();

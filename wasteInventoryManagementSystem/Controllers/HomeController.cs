@@ -1,20 +1,22 @@
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 using wasteInventoryManagementSystem.Models;
+using wasteInventoryManagementSystem.Repository.IRepository;
 
 namespace wasteInventoryManagementSystem.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
+        public readonly IUnitOfWork _unitOfWork;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(IUnitOfWork unitOfWork)
         {
-            _logger = logger;
+            _unitOfWork = unitOfWork;
         }
 
         public IActionResult Index()
         {
+            
             return View();
         }
 
