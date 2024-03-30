@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using wasteInventoryManagementSystem.Data;
 
@@ -11,9 +12,11 @@ using wasteInventoryManagementSystem.Data;
 namespace wasteInventoryManagementSystem.Migrations
 {
     [DbContext(typeof(ApplicationDbcontext))]
-    partial class ApplicationDbcontextModelSnapshot : ModelSnapshot
+    [Migration("20240329170825_Addzzero")]
+    partial class Addzzero
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -48,13 +51,13 @@ namespace wasteInventoryManagementSystem.Migrations
 
                     b.HasIndex("WeightAndPriceId");
 
-                    b.ToTable("wasteBuyings", (string)null);
+                    b.ToTable("wasteBuyings");
 
                     b.HasData(
                         new
                         {
                             id = 1,
-                            Date = new DateTime(2024, 3, 29, 21, 35, 0, 689, DateTimeKind.Local).AddTicks(6028),
+                            Date = new DateTime(2024, 3, 29, 19, 8, 25, 372, DateTimeKind.Local).AddTicks(2949),
                             Name = "keke shop",
                             Surname = "kk",
                             WeightAndPriceId = 1
@@ -62,7 +65,7 @@ namespace wasteInventoryManagementSystem.Migrations
                         new
                         {
                             id = 2,
-                            Date = new DateTime(2024, 3, 29, 21, 35, 0, 689, DateTimeKind.Local).AddTicks(6031),
+                            Date = new DateTime(2024, 3, 29, 19, 8, 25, 372, DateTimeKind.Local).AddTicks(2954),
                             Name = "L shop",
                             Surname = "ks",
                             WeightAndPriceId = 2
@@ -92,14 +95,14 @@ namespace wasteInventoryManagementSystem.Migrations
                     b.Property<DateTime>("Date")
                         .HasColumnType("datetime2");
 
-                    b.Property<int?>("WeightAndPriceId")
+                    b.Property<int>("WeightAndPriceId")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
 
                     b.HasIndex("WeightAndPriceId");
 
-                    b.ToTable("wasteDonations", (string)null);
+                    b.ToTable("wasteDonations");
 
                     b.HasData(
                         new
@@ -108,7 +111,7 @@ namespace wasteInventoryManagementSystem.Migrations
                             BusinessName = "keke shop",
                             ContactNumber = "0658775412",
                             ContactPerson = "kk",
-                            Date = new DateTime(2024, 3, 29, 21, 35, 0, 689, DateTimeKind.Local).AddTicks(5884),
+                            Date = new DateTime(2024, 3, 29, 19, 8, 25, 372, DateTimeKind.Local).AddTicks(2803),
                             WeightAndPriceId = 1
                         },
                         new
@@ -117,7 +120,7 @@ namespace wasteInventoryManagementSystem.Migrations
                             BusinessName = "L shop",
                             ContactNumber = "0658777862",
                             ContactPerson = "ks",
-                            Date = new DateTime(2024, 3, 29, 21, 35, 0, 689, DateTimeKind.Local).AddTicks(5902),
+                            Date = new DateTime(2024, 3, 29, 19, 8, 25, 372, DateTimeKind.Local).AddTicks(2817),
                             WeightAndPriceId = 2
                         },
                         new
@@ -126,7 +129,7 @@ namespace wasteInventoryManagementSystem.Migrations
                             BusinessName = "M shop",
                             ContactNumber = "0846775412",
                             ContactPerson = "kl",
-                            Date = new DateTime(2024, 3, 29, 21, 35, 0, 689, DateTimeKind.Local).AddTicks(5904),
+                            Date = new DateTime(2024, 3, 29, 19, 8, 25, 372, DateTimeKind.Local).AddTicks(2819),
                             WeightAndPriceId = 3
                         });
                 });
@@ -157,13 +160,13 @@ namespace wasteInventoryManagementSystem.Migrations
 
                     b.HasIndex("WeightAndPriceId");
 
-                    b.ToTable("wasteSellings", (string)null);
+                    b.ToTable("wasteSellings");
 
                     b.HasData(
                         new
                         {
                             Id = 1,
-                            Date = new DateTime(2024, 3, 29, 21, 35, 0, 689, DateTimeKind.Local).AddTicks(6007),
+                            Date = new DateTime(2024, 3, 29, 19, 8, 25, 372, DateTimeKind.Local).AddTicks(2926),
                             WeightAndPriceId = 1,
                             WholesaleCompany = "keke shop",
                             WholesaleContact = "kk"
@@ -171,7 +174,7 @@ namespace wasteInventoryManagementSystem.Migrations
                         new
                         {
                             Id = 2,
-                            Date = new DateTime(2024, 3, 29, 21, 35, 0, 689, DateTimeKind.Local).AddTicks(6011),
+                            Date = new DateTime(2024, 3, 29, 19, 8, 25, 372, DateTimeKind.Local).AddTicks(2930),
                             WeightAndPriceId = 2,
                             WholesaleCompany = "L shop",
                             WholesaleContact = "ks"
@@ -230,7 +233,7 @@ namespace wasteInventoryManagementSystem.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("WeightAndPrice", (string)null);
+                    b.ToTable("WeightAndPrice");
 
                     b.HasData(
                         new
@@ -304,7 +307,9 @@ namespace wasteInventoryManagementSystem.Migrations
                 {
                     b.HasOne("wasteInventoryManagementSystem.Models.WeightAndPrice", "WeightAndPrice")
                         .WithMany()
-                        .HasForeignKey("WeightAndPriceId");
+                        .HasForeignKey("WeightAndPriceId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("WeightAndPrice");
                 });

@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using wasteInventoryManagementSystem.Data;
 
@@ -11,9 +12,11 @@ using wasteInventoryManagementSystem.Data;
 namespace wasteInventoryManagementSystem.Migrations
 {
     [DbContext(typeof(ApplicationDbcontext))]
-    partial class ApplicationDbcontextModelSnapshot : ModelSnapshot
+    [Migration("20240329193501_mssql_migration_611")]
+    partial class mssql_migration_611
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -48,7 +51,7 @@ namespace wasteInventoryManagementSystem.Migrations
 
                     b.HasIndex("WeightAndPriceId");
 
-                    b.ToTable("wasteBuyings", (string)null);
+                    b.ToTable("wasteBuyings");
 
                     b.HasData(
                         new
@@ -99,7 +102,7 @@ namespace wasteInventoryManagementSystem.Migrations
 
                     b.HasIndex("WeightAndPriceId");
 
-                    b.ToTable("wasteDonations", (string)null);
+                    b.ToTable("wasteDonations");
 
                     b.HasData(
                         new
@@ -157,7 +160,7 @@ namespace wasteInventoryManagementSystem.Migrations
 
                     b.HasIndex("WeightAndPriceId");
 
-                    b.ToTable("wasteSellings", (string)null);
+                    b.ToTable("wasteSellings");
 
                     b.HasData(
                         new
@@ -230,7 +233,7 @@ namespace wasteInventoryManagementSystem.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("WeightAndPrice", (string)null);
+                    b.ToTable("WeightAndPrice");
 
                     b.HasData(
                         new

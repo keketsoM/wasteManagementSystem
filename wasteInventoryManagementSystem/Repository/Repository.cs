@@ -25,6 +25,7 @@ namespace Bulky.DataAccess.Repository
         {
 
             dbSet.Add(entity);
+            
         }
 
         public T Get(Expression<Func<T, bool>> filter,string? includeProperties=null)
@@ -58,6 +59,7 @@ namespace Bulky.DataAccess.Repository
         public void Remove(T entity)
         {
             dbSet.Remove(entity);
+            
         }
 
         

@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Microsoft.AspNetCore.Mvc.ModelBinding.Validation;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace wasteInventoryManagementSystem.Models
@@ -14,6 +15,7 @@ namespace wasteInventoryManagementSystem.Models
 
         public int WeightAndPriceId { get; set; }
         [ForeignKey("WeightAndPriceId")]
+        [ValidateNever]
         public WeightAndPrice WeightAndPrice { get; set; }
     }
 }

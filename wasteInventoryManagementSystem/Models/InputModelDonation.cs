@@ -1,33 +1,12 @@
-﻿using Microsoft.AspNetCore.Mvc.ModelBinding.Validation;
-using Microsoft.AspNetCore.Mvc.Rendering;
-using System.ComponentModel.DataAnnotations;
-using wasteInventoryManagementSystem.Enums;
-
-namespace wasteInventoryManagementSystem.Models
+﻿namespace wasteInventoryManagementSystem.Models
 {
-    public class WeightAndPrice
+    public class InputModelDonation
     {
-        public WeightAndPrice() 
-        {
-            GlassBottlesWeight = 0;
-            GlassBottlesPrice = 0;
-            MetalsWeight = 0;   
-            MetalsPrice = 0;    
-            PlasticWeight = 0;
-            PlasticPrice = 0;
-            PaperWeight = 0;
-            PaperPrice = 0;
-            CardboardWeight = 0;    
-            CardboardPrice = 0; 
-            AluminumCansWeight = 0; 
-            AluminumCansPrice = 0;  
-            Totalweight = 0;
-            TotalSalePrice = 0; 
-        
-        }
-        
-        [Key]
-        public int Id { get; set; }
+        public DateTime Date { get; set; } = DateTime.Now;
+        public string BusinessName { get; set; }
+        public string ContactPerson { get; set; }
+
+        public string ContactNumber { get; set; }
 
         public double GlassBottlesWeight { get; set; } = default;
 
@@ -61,6 +40,5 @@ namespace wasteInventoryManagementSystem.Models
 
 
         public double Totalweight { get; set; } = default;
-
     }
 }

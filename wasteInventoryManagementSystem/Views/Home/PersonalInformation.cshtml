@@ -1,0 +1,190 @@
+﻿@using wasteInventoryManagementSystem.Enums
+@model PersonalInformationVM
+<div class="text-center">
+    <label class="form-label">Collection Type</label>
+    @Html.DropDownList("collection type", Html.GetEnumSelectList<TypeEnum>(),
+            "Select collection Type", new { @class = "form text-center" }
+            )
+</div>
+
+<div class="card shadow border-0 mt-4 rounded" id="donation">
+<div class="card-header bg-secondary bg-gradient ml-0 py-3">
+    <div class="row">
+        <div class="col-12 text-center">
+            <h2 class="text-white py-2">Create Donation List</h2>
+
+        </div>
+    </div>
+</div>
+<div class="card-body p-4">
+
+    <form method="post" class="row">
+        <div class="border p-3">
+
+            <div asp-validation-summary="All" class="text-danger"></div>
+            <div class="form-floating py-2 col-12">
+                <input asp-for="donationInput.Date" disabled class="form-control border-0 shadow" />
+                    <label asp-for=donationInput.Date class="ms-2"></label>
+            </div>
+            <div class="form-floating py-2 col-12">
+                    <input asp-for="donationInput.BusinessName" class="form-control border-0 shadow" />
+                    <label asp-for=donationInput.BusinessName class="ms-2"></label>
+
+                    <span asp-validation-for="donationInput.BusinessName" class="text-danger"></span>
+            </div>
+            <div class="form-floating py-2 col-12">
+                    <input asp-for="donationInput.ContactPerson" class="form-control border-0 shadow" />
+                    <label asp-for=donationInput.ContactPerson class="ms-2"></label>
+                    <span asp-validation-for="donationInput.ContactPerson" class="text-danger"></span>
+            </div>
+            <div class="form-floating py-2 col-12">
+                    <input asp-for="donationInput.ContactNumber" class="form-control border-0 shadow" />
+                    <label asp-for=donationInput.ContactNumber class="ms-2"></label>
+                    <span asp-validation-for="donationInput.ContactNumber" class="text-danger"></span>
+            </div>
+                <div class="row">
+                    <div class="col-6  col-md-3">
+                        <button asp-controller="Home" asp-action="PersonalInformation" class="btn btn-outline-primary form-control" type="submit">next</button>
+                    </div>
+                    <div class="col-6  col-md-3">
+                        <a asp-controller="Home" asp-action="Index" class="btn btn-outline-secondary form-control">Back homePage</a>
+                    </div>
+                </div>
+        </div>
+    </form>
+</div>
+</div>
+
+
+
+
+
+
+<div class="card shadow border-0 mt-4 rounded" id="selling">
+    <div class="card-header bg-secondary bg-gradient ml-0 py-3">
+        <div class="row">
+            <div class="col-12 text-center">
+                <h2 class="text-white py-2">Create Seller</h2>
+
+            </div>
+        </div>
+    </div>
+    <div class="card-body p-4">
+
+        <form method="post" class="row">
+            <div class="border p-3">
+
+                <div asp-validation-summary="All" class="text-danger"></div>
+                <div class="form-floating py-2 col-12">
+                    <input asp-for="selling.Date" disabled class="form-control border-0 shadow" />
+                    <label asp-for=selling.Date class="ms-2"></label>
+                </div>
+                <div class="form-floating py-2 col-12">
+                    <input asp-for="selling.WholesaleCompany" class="form-control border-0 shadow" />
+                    <label asp-for=selling.WholesaleCompany class="ms-2"></label>
+
+                    <span asp-validation-for="selling.WholesaleCompany" class="text-danger"></span>
+                </div>
+                <div class="form-floating py-2 col-12">
+                    <input asp-for="selling.WholesaleContact" class="form-control border-0 shadow" />
+                    <label asp-for=selling.WholesaleContact class="ms-2"></label>
+                    <span asp-validation-for="selling.WholesaleContact" class="text-danger"></span>
+                </div>
+                <div class="row">
+                    <div class="col-6  col-md-3">
+                        <button asp-controller="Home" asp-action="PersonalInformation" class="btn btn-outline-primary form-control" type="submit">Create</button>
+                    </div>
+                    <div class="col-6  col-md-3">
+                        <a asp-controller="Home" asp-action="Index" class="btn btn-outline-secondary form-control">Back homePage</a>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+<div class="card shadow border-0 mt-4 rounded"  id="buying">
+    <div class="card-header bg-secondary bg-gradient ml-0 py-3">
+        <div class="row">
+            <div class="col-12 text-center">
+                <h2 class="text-white py-2">Create Buyer</h2>
+
+            </div>
+        </div>
+    </div>
+    <div class="card-body p-4">
+
+        <form method="post" class="row">
+            <div class="border p-3">
+
+                <div asp-validation-summary="All" class="text-danger"></div>
+                <div class="form-floating py-2 col-12">
+                    <input asp-for="buying.Date" disabled class="form-control border-0 shadow" />
+                    <label asp-for=buying.Date class="ms-2"></label>
+                </div>
+                <div class="form-floating py-2 col-12">
+                    <input asp-for="buying.Name" class="form-control border-0 shadow" />
+                    <label asp-for=buying.Name on class="ms-2"></label>
+                    <span asp-validation-for="buying.Name" class="text-danger"></span>
+                </div>
+                <div class="form-floating py-2 col-12">
+                    <input asp-for="buying.Surname" class="form-control border-0 shadow" />
+                    <label asp-for=buying.Surname class="ms-2"></label>
+                    <span asp-validation-for="buying.Surname" class="text-danger"></span>
+                </div>
+                <div class="row">
+                    <div class="col-6  col-md-3">
+                        <button asp-controller="Home" asp-action="PersonalInformation" class="btn btn-outline-primary form-control" type="submit">Create</button>
+                    </div>
+                    <div class="col-6  col-md-3">
+                        <a asp-controller="Home" asp-action="Index" class="btn btn-outline-secondary form-control">Back homePage</a>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+@section Scripts {
+
+    @* <partial name="_ValidationScriptsPartial"></partial> *@
+    <script>
+        $(document).ready(function () {
+
+            $('#buying').hide();
+            $('#selling').hide();
+            $('#donation').hide();
+
+
+            $('#collection_type').change(function () {
+                var selection = $('#collection_type Option:Selected').text();
+
+                if (selection == "Select_collection_Type") {
+                    $('#buying').hide();
+                    $('#selling').hide();
+                    $('#donation').hide();
+                }else if (selection == "Buying") {
+                    $('#buying').show();
+                    $('#selling').hide();
+                    $('#donation').hide()
+                } else if (selection == "Selling") {
+                    $('#selling').show();
+                    $('#buying').hide();
+                    $('#donation').hide();
+                } else if (selection == "Donation") {
+                    $('#donation').show();
+                    $('#buying').hide();
+                    $('#selling').hide();
+                }
+                else {
+                    $('#buying').hide();
+                    $('#selling').hide();
+                    $('#donation').hide();
+                }
+            })
+        })
+    </script>
+
+}
