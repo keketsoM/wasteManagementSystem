@@ -1,9 +1,11 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 using wasteInventoryManagementSystem.Models;
 
 namespace wasteInventoryManagementSystem.Data
 {
-    public class ApplicationDbcontext : DbContext
+    public class ApplicationDbcontext : IdentityDbContext<IdentityUser>
     {
 
         public ApplicationDbcontext(DbContextOptions<ApplicationDbcontext> options) : base(options)
@@ -20,7 +22,7 @@ namespace wasteInventoryManagementSystem.Data
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            
+            base.OnModelCreating(modelBuilder);
             modelBuilder.Entity<WasteDonation>().HasData(
                 new WasteDonation {Id=1, BusinessName="keke shop", ContactPerson="kk",ContactNumber="0658775412", WeightAndPriceId=1 },
                  new WasteDonation { Id = 2, BusinessName = "L shop", ContactPerson = "ks", ContactNumber = "0658777862", WeightAndPriceId = 2 },

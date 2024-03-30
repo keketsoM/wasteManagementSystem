@@ -1,0 +1,220 @@
+﻿@model PersonalInformationVM
+
+<div class="text-center">
+    <label class="form-label">Collection Type</label>
+    @Html.DropDownList("Select Material Type", Html.GetEnumSelectList<MaterialType>(),
+            "Select Material Type", new { @class = "form text-center" }
+            )
+</div>
+
+
+
+
+<div class="card shadow border-0 mt-4 rounded">
+    <div class="card-header bg-secondary bg-gradient ml-0 py-3">
+        <div class="row">
+            <div class="col-12 text-center">
+                <h2 class="text-white py-2">Create Donation List</h2>
+
+            </div>
+        </div>
+    </div>
+    <div class="card-body p-4">
+
+        <form method="post" class="row">
+            <div class="border p-3">
+
+                <div asp-validation-summary="All" class="text-danger"></div>
+                <div class="form-floating py-2 col-12" hidden>
+                    <input asp-for="donationInput.Date" disabled class="form-control border-0 shadow" />
+                    <label asp-for=donationInput.Date class="ms-2"></label>
+                </div>
+                <div class="form-floating py-2 col-12" hidden>
+                    <input asp-for="donationInput.BusinessName" class="form-control border-0 shadow" />
+                    <label asp-for=donationInput.BusinessName class="ms-2"></label>
+
+                    <span asp-validation-for="donationInput.BusinessName" class="text-danger"></span>
+                </div>
+                <div class="form-floating py-2 col-12" hidden>
+                    <input asp-for="donationInput.ContactPerson" class="form-control border-0 shadow" />
+                    <label asp-for=donationInput.ContactPerson class="ms-2"></label>
+                    <span asp-validation-for="donationInput.ContactPerson" class="text-danger"></span>
+                </div>
+                <div class="form-floating py-2 col-12" hidden>
+                    <input asp-for="donationInput.ContactNumber" class="form-control border-0 shadow" />
+                    <label asp-for=donationInput.ContactNumber class="ms-2"></label>
+                    <span asp-validation-for="donationInput.ContactNumber" class="text-danger"></span>
+                </div>
+                <div class="form-floating py-2 col-12" id="GlassBottles">
+                    <input asp-for="donationInput.GlassBottlesWeight" class="form-control border-0 shadow" />
+                    <label asp-for=donationInput.GlassBottlesWeight class="ms-2"></label>
+                    <span asp-validation-for="donationInput.GlassBottlesWeight" class="text-danger"></span>
+                </div>
+                <div class="form-floating py-2 col-12" id="GlassBottles">
+                    <input asp-for="donationInput.GlassBottlesPrice" class="form-control border-0 shadow" />
+                    <label asp-for=donationInput.GlassBottlesPrice class="ms-2"></label>
+                    <span asp-validation-for="donationInput.GlassBottlesPrice" class="text-danger"></span>
+                </div>
+                <div class="form-floating py-2 col-12" id="Metals">
+                    <input asp-for="donationInput.MetalsWeight" class="form-control border-0 shadow" />
+                    <label asp-for=donationInput.MetalsWeight class="ms-2"></label>
+                    <span asp-validation-for="donationInput.MetalsWeight" class="text-danger"></span>
+                </div>
+                <div class="form-floating py-2 col-12" id="Metals">
+                    <input asp-for="donationInput.MetalsPrice" class="form-control border-0 shadow" />
+                    <label asp-for=donationInput.MetalsPrice class="ms-2"></label>
+                    <span asp-validation-for="donationInput.MetalsPrice" class="text-danger"></span>
+                </div>
+                <div class="form-floating py-2 col-12" id="Plastic">
+                    <input asp-for="donationInput.PlasticWeight" class="form-control border-0 shadow" />
+                    <label asp-for=donationInput.PlasticWeight class="ms-2"></label>
+                    <span asp-validation-for="donationInput.PlasticWeight" class="text-danger"></span>
+
+                </div>
+                <div class="form-floating py-2 col-12" id="Plastic">
+                    <input asp-for="donationInput.PlasticPrice" class="form-control border-0 shadow" />
+                    <label asp-for=donationInput.PlasticPrice class="ms-2"></label>
+                    <span asp-validation-for="donationInput.PlasticPrice" class="text-danger"></span>
+                </div>
+                <div class="form-floating py-2 col-12" id="Paper">
+                    <input asp-for="donationInput.PaperWeight" class="form-control border-0 shadow" />
+                    <label asp-for=donationInput.PaperWeight class="ms-2"></label>
+                    <span asp-validation-for="donationInput.PaperWeight" class="text-danger"></span>
+
+                </div>
+                <div class="form-floating py-2 col-12" id="Paper">
+                    <input asp-for="donationInput.PaperPrice" class="form-control border-0 shadow" />
+                    <label asp-for=donationInput.PaperPrice class="ms-2"></label>
+                    <span asp-validation-for="donationInput.PaperPrice" class="text-danger"></span>
+                </div>
+                <div class="form-floating py-2 col-12" id="Cardboard">
+                    <input asp-for="donationInput.CardboardWeight" class="form-control border-0 shadow" />
+                    <label asp-for=donationInput.CardboardWeight class="ms-2"></label>
+                    <span asp-validation-for="donationInput.CardboardWeight" class="text-danger"></span>
+                </div>
+                <div class="form-floating py-2 col-12" id="Cardboard">
+                    <input asp-for="donationInput.CardboardPrice" class="form-control border-0 shadow" />
+                    <label asp-for=donationInput.CardboardPrice class="ms-2"></label>
+                    <span asp-validation-for="donationInput.CardboardPrice" class="text-danger"></span>
+                </div>
+                <div class="form-floating py-2 col-12" id="AluminumCans">
+                    <input asp-for="donationInput.AluminumCansWeight" class="form-control border-0 shadow" />
+                    <label asp-for=donationInput.AluminumCansWeight class="ms-2"></label>
+                    <span asp-validation-for="donationInput.AluminumCansWeight" class="text-danger"></span>
+                </div>
+                <div class="form-floating py-2 col-12" id="AluminumCans">
+                    <input asp-for="donationInput.AluminumCansPrice" class="form-control border-0 shadow" />
+                    <label asp-for=donationInput.AluminumCansPrice class="ms-2"></label>
+                    <span asp-validation-for="donationInput.AluminumCansPrice" class="text-danger"></span>
+                </div>
+                <div class="form-floating py-2 col-12" id="TotalSalePrice">
+                    <input asp-for="donationInput.TotalSalePrice" class="form-control border-0 shadow" />
+                    <label asp-for=donationInput.TotalSalePrice class="ms-2"></label>
+                    <span asp-validation-for="donationInput.TotalSalePrice" class="text-danger"></span>
+                </div>
+                <div class="form-floating py-2 col-12" id="Totalweight">
+                    <input asp-for="donationInput.Totalweight" class="form-control border-0 shadow" />
+                    <label asp-for=donationInput.Totalweight class="ms-2"></label>
+                    <span asp-validation-for="donationInput.Totalweight" class="text-danger"></span>
+                </div>
+                <div class="row">
+                     <div class="col-6  col-md-3">
+                        <button asp-controller="Home" asp-action="DonationType" class="btn btn-outline-primary form-control" type="submit">submit</button>
+                    </div> 
+                    <div class="col-6  col-md-3">
+                        <a asp-controller="Home" asp-action="index" class="btn btn-outline-secondary form-control">Exit App</a>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+
+    @* <partial name="_ValidationScriptsPartial"></partial> *@
+    <script>
+        $(document).ready(function () {
+
+            $('#Select_Material_Type').change(function () {
+                var selection = $('#Select_Material_Type Option:Selected').text();
+
+                if (selection == "Select_Material_Type") {
+                    $('#AluminumCans').hide();
+                    $('#Totalweight').hide();
+                    $('#TotalSalePrice').hide();
+                    $('#Metals').hide();
+                    $('#AluminumCans').hide();
+                    $('#Cardboard').hide();
+                    $('#Paper').hide();
+                    $('#Plastic').hide();
+                } else if (selection == "GlassBottles"") {
+                    $('#GlassBottles').show();
+                    $('#Totalweight').show();
+                    $('#TotalSalePrice').show();
+                    $('#Metals').hide();
+                    $('#AluminumCans').hide();
+                $('#Cardboard').hide();
+                $('#Paper').hide();
+                $('#Plastic').hide();
+                } else if (selection == "Metals") {
+                $('#Metals').show();
+                    $('#Totalweight').show();
+                    $('#TotalSalePrice').show();
+                $('#GlassBottles').hide();
+                $('#AluminumCans').hide();
+                $('#Cardboard').hide();
+                $('#Paper').hide();
+                $('#Plastic').hide();
+                } else if (selection == "Plastic") {
+                $('#Plastic').show();
+                $('#Totalweight').show();
+                $('#TotalSalePrice').show();
+                $('#Metals').hide();
+                $('#AluminumCans').hide();
+                $('#Cardboard').hide();
+                $('#Paper').hide();
+                $('#GlassBottles').hide();
+                } else if (selection == "Paper") {
+                $('#Paper').show();
+                $('#Totalweight').show();
+                $('#TotalSalePrice').show();
+                $('#Metals').hide();
+                $('#AluminumCans').hide();
+                $('#Cardboard').hide();
+                $('#GlassBottles').hide();
+                $('#Plastic').hide();
+                } else if (selection == "Cardboard") {
+                $('#Cardboard').show();
+                $('#Totalweight').show();
+                $('#TotalSalePrice').show();
+                $('#Metals').hide();
+                $('#AluminumCans').hide();
+                $('#GlassBottles').hide();
+                $('#Paper').hide();
+                $('#Plastic').hide();
+                } else if (selection == "AluminumCans") {
+                $('#AluminumCans').show();
+                $('#Totalweight').show();
+                $('#TotalSalePrice').show();
+                $('#Metals').hide();
+                $('#AluminumCans').hide();
+                $('#Cardboard').hide();
+                $('#Paper').hide();
+                $('#Plastic').hide();
+                }
+                else {
+                $('#AluminumCans').hide();
+                $('#Totalweight').hide();
+                $('#TotalSalePrice').hide();
+                $('#Metals').hide();
+                $('#AluminumCans').hide();
+                $('#Cardboard').hide();
+                $('#Paper').hide();
+                $('#Plastic').hide();
+                }
+            })
+        })
+    </script>
+
+}

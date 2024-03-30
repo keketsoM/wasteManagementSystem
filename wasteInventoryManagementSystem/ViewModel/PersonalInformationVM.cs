@@ -9,7 +9,8 @@ namespace wasteInventoryManagementSystem.ViewModel
     {
         public WasteBuying? buying { get; set; }
         public WasteDonation? donation { get; set; }
-
+        public InputModelBuying? buyingInput {  get; set; } 
+        public InputModelSelling? sellingInput { get; set; }    
         public InputModelDonation? donationInput { get; set; }
         public WasteSelling? selling { get; set; }
         //[ValidateNever]

@@ -1,5 +1,4 @@
-﻿@using wasteInventoryManagementSystem.Enums
-@model PersonalInformationVM
+﻿@model PersonalInformationVM
 <div class="text-center">
     <label class="form-label">Collection Type</label>
     @Html.DropDownList("collection type", Html.GetEnumSelectList<TypeEnum>(),
@@ -22,8 +21,8 @@
         <div class="border p-3">
 
             <div asp-validation-summary="All" class="text-danger"></div>
-            <div class="form-floating py-2 col-12">
-                <input asp-for="donationInput.Date" disabled class="form-control border-0 shadow" />
+                <div class="form-floating py-2 col-12" hidden>
+                    <input asp-for="donationInput.Date" class="form-control border-0 shadow" />
                     <label asp-for=donationInput.Date class="ms-2"></label>
             </div>
             <div class="form-floating py-2 col-12">
@@ -76,23 +75,23 @@
 
                 <div asp-validation-summary="All" class="text-danger"></div>
                 <div class="form-floating py-2 col-12">
-                    <input asp-for="selling.Date" disabled class="form-control border-0 shadow" />
-                    <label asp-for=selling.Date class="ms-2"></label>
+                    <input asp-for="sellingInput.Date" hidden disabled class="form-control border-0 shadow" />
+                    <label asp-for=sellingInput.Date class="ms-2"></label>
                 </div>
                 <div class="form-floating py-2 col-12">
-                    <input asp-for="selling.WholesaleCompany" class="form-control border-0 shadow" />
-                    <label asp-for=selling.WholesaleCompany class="ms-2"></label>
+                    <input asp-for="sellingInput.WholesaleCompany" class="form-control border-0 shadow" />
+                    <label asp-for=sellingInput.WholesaleCompany class="ms-2"></label>
 
-                    <span asp-validation-for="selling.WholesaleCompany" class="text-danger"></span>
+                    <span asp-validation-for="sellingInput.WholesaleCompany" class="text-danger"></span>
                 </div>
                 <div class="form-floating py-2 col-12">
-                    <input asp-for="selling.WholesaleContact" class="form-control border-0 shadow" />
-                    <label asp-for=selling.WholesaleContact class="ms-2"></label>
-                    <span asp-validation-for="selling.WholesaleContact" class="text-danger"></span>
+                    <input asp-for="sellingInput.WholesaleContact" class="form-control border-0 shadow" />
+                    <label asp-for=sellingInput.WholesaleContact class="ms-2"></label>
+                    <span asp-validation-for="sellingInput.WholesaleContact" class="text-danger"></span>
                 </div>
                 <div class="row">
                     <div class="col-6  col-md-3">
-                        <button asp-controller="Home" asp-action="PersonalInformation" class="btn btn-outline-primary form-control" type="submit">Create</button>
+                        <button asp-controller="Home" asp-action="PersonalInformation" class="btn btn-outline-primary form-control" type="submit">next</button>
                     </div>
                     <div class="col-6  col-md-3">
                         <a asp-controller="Home" asp-action="Index" class="btn btn-outline-secondary form-control">Back homePage</a>
@@ -120,22 +119,22 @@
 
                 <div asp-validation-summary="All" class="text-danger"></div>
                 <div class="form-floating py-2 col-12">
-                    <input asp-for="buying.Date" disabled class="form-control border-0 shadow" />
-                    <label asp-for=buying.Date class="ms-2"></label>
+                    <input asp-for="buyingInput.Date" hidden disabled class="form-control border-0 shadow" />
+                    <label asp-for=buyingInput.Date class="ms-2"></label>
                 </div>
                 <div class="form-floating py-2 col-12">
-                    <input asp-for="buying.Name" class="form-control border-0 shadow" />
-                    <label asp-for=buying.Name on class="ms-2"></label>
-                    <span asp-validation-for="buying.Name" class="text-danger"></span>
+                    <input asp-for="buyingInput.Name" class="form-control border-0 shadow" />
+                    <label asp-for=buyingInput.Name on class="ms-2"></label>
+                    <span asp-validation-for="buyingInput.Name" class="text-danger"></span>
                 </div>
                 <div class="form-floating py-2 col-12">
-                    <input asp-for="buying.Surname" class="form-control border-0 shadow" />
-                    <label asp-for=buying.Surname class="ms-2"></label>
-                    <span asp-validation-for="buying.Surname" class="text-danger"></span>
+                    <input asp-for="buyingInput.Surname" class="form-control border-0 shadow" />
+                    <label asp-for=buyingInput.Surname class="ms-2"></label>
+                    <span asp-validation-for="buyingInput.Surname" class="text-danger"></span>
                 </div>
                 <div class="row">
                     <div class="col-6  col-md-3">
-                        <button asp-controller="Home" asp-action="PersonalInformation" class="btn btn-outline-primary form-control" type="submit">Create</button>
+                        <button asp-controller="Home" asp-action="PersonalInformation" class="btn btn-outline-primary form-control" type="submit">next</button>
                     </div>
                     <div class="col-6  col-md-3">
                         <a asp-controller="Home" asp-action="Index" class="btn btn-outline-secondary form-control">Back homePage</a>

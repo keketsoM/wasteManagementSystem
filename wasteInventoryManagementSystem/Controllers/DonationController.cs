@@ -1,12 +1,15 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using wasteInventoryManagementSystem.Data;
 using wasteInventoryManagementSystem.Models;
 using wasteInventoryManagementSystem.Repository.IRepository;
 
 namespace wasteInventoryManagementSystem.Controllers
 {
+    [Authorize]
     public class DonationController : Controller
     {
+        
         public readonly IUnitOfWork _unitOfWork;
 
         public DonationController(IUnitOfWork unitOfWork)

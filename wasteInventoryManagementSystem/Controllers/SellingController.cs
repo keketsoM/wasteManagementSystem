@@ -1,9 +1,11 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using wasteInventoryManagementSystem.Models;
 using wasteInventoryManagementSystem.Repository.IRepository;
 
 namespace wasteInventoryManagementSystem.Controllers
 {
+    [Authorize]
     public class SellingController : Controller
     {
         public readonly IUnitOfWork _unitOfWork;
